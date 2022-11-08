@@ -5,8 +5,197 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TortugaC_VoytsekhovichNikita.Windows"
         mc:Ignorable="d"
-        Title="MainMenu" Height="450" Width="800">
+        Title="MainMenu" Height="850" Width="800" WindowStartupLocation="CenterScreen" FontFamily="Pieces of Eight Cyrillic AA">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+            <RowDefinition Height="480"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Border Background="Gray" Grid.ColumnSpan="2"/>
+        <Border Background="Gray" Grid.ColumnSpan="2" Grid.Row="4"/>
+        <Label Content="ТортугаС Бар" 
+               FontSize="58" Margin="100 0 0 0" Grid.ColumnSpan="2"/>
+        <Image Source="/Source/logo.png" HorizontalAlignment="Left"/>
+        <Label Content="Меню" Grid.Row="1" Grid.ColumnSpan="2" 
+               FontSize="58"
+               Margin="0 0 0 0"
+               HorizontalAlignment="Center"/>
+        <ListView x:Name="lvMenu"
+                  Grid.Row="3"
+                  Grid.ColumnSpan="2"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  >
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+            Background="Gray"
+            Width="370"
+            Height="200"
+            BorderThickness="2"
+            CornerRadius="5"
+            BorderBrush="Wheat">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock
+                                Text="{Binding Title}"
+                                FontSize="20"
+                                Width="150"
+                                Height="40"
+                                Foreground="AntiqueWhite"
+                                TextWrapping="Wrap"
+                                Margin="0 0 0 0"
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                />
+                            <TextBlock
+                                Text="Цена: "
+                                FontSize="20"
+                                Foreground="AntiqueWhite"
+                                Margin="0 0 5 0"
+                                HorizontalAlignment="Center"
+                                Grid.Column="0"
+                                Grid.Row="3"
+                                />
+                            <TextBlock
+                                Text="{Binding Price}"
+                                FontSize="16"
+                                Foreground="AntiqueWhite"
+                                HorizontalAlignment="Center"
+                                Margin="120 0 5 0"
+                                Grid.Column="0"
+                                Grid.Row="3"
+                                />
+                            <Image x:Name="PhotoProduct"
+                                   Grid.RowSpan="2"
+                                   Grid.Column="0"
+                                   Margin="0"
+                                   Width="100"
+                                   Height="400">
+                                <Image.Source>
+                                    <Binding Path="Image">
+                                        <Binding.TargetNullValue>
+                                            <ImageSource>\Source\logo.png</ImageSource>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+                            <Button Name="btnOrder"
+                                    Content="Купить"
+                                    Click="btnOrder_Click"
+                                    Grid.Row="3"
+                                    FontSize="20"
+                                    VerticalContentAlignment="Center"
+                                    Grid.Column="1"
+                                    Width="100"
+                                    Height="30"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ListView Name="lvCategory" Grid.Row="2" Grid.ColumnSpan="2"
+                  SelectionChanged="lvCategory_SelectionChanged">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        Background="Gray"
+                        Width="200"
+                        Height="97"
+                        BorderThickness="2"
+                        CornerRadius="5"
+                        BorderBrush="Wheat">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image x:Name="PhotoCategory"
+                                   Grid.Row="0"
+                                   Grid.RowSpan="3"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="2"
+                                   HorizontalAlignment="Center"
+                                   Margin="0 0 0 30"
+                                   Width="100"
+                                   Height="50">
+                                <Image.Source>
+                                    <Binding Path="Image">
+                                        <Binding.TargetNullValue>
+                                            <ImageSource>\Source\logo.png</ImageSource>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+                            <TextBlock
+                                Text="{Binding Title}"
+                                FontSize="15"
+                                Width="150"
+                                Height="20"
+                                Foreground="AntiqueWhite"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                TextWrapping="Wrap"
+                                Margin="0 15 0 0"
+                                Grid.Row="2"
+                                Grid.RowSpan="3"
+                                Grid.ColumnSpan="2"
+                                />
+                            
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
+        <Label  Content="Общая сумма: 0 руб." Grid.Row="4" 
+                HorizontalContentAlignment="Center" 
+                VerticalContentAlignment="Center" FontSize="15"/>
+        <Image Source="\Source\money.png" Grid.Row="4" Grid.Column="0"
+               Width="45" Height="45" Margin="0 0 200 0"/>
+        <Button Grid.Row="4" Grid.Column="1" Height="50" Width="50"
+                Margin="100 0 0 0" Background="Transparent" 
+                BorderBrush="Transparent" Click="Button_Click">
+            <Image Source="\Source\cart.png" Grid.Row="4" Grid.Column="1"
+               Width="45" Height="45" Margin="0 0 0 0"/>
+        </Button>
+        <Button Grid.Row="4" Grid.Column="1" Height="50" Width="50"
+                Margin="250 0 0 0" Background="Transparent" 
+                BorderBrush="Transparent" Click="Button_Click_1">
+            <Image Source="\Source\table.png" Grid.Row="4" Grid.Column="1"
+               Width="45" Height="45" Margin="0 0 0 0"/>
+        </Button>
         
     </Grid>
 </Window>

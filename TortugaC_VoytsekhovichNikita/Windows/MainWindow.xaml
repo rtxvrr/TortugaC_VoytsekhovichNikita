@@ -5,8 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TortugaC_VoytsekhovichNikita"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="850" Width="800" FontFamily="Pieces of Eight Cyrillic AA"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Border Background="Gray" Grid.ColumnSpan="2"/>
+        <Border Background="Gray" Grid.ColumnSpan="2" Grid.Row="3"/>
+        <Label Content="ТортугаС Бар" FontFamily="Pieces of Eight Cyrillic AA"
+               FontSize="58" Margin="100 0 0 0" Grid.ColumnSpan="2"/>
+        <Image Source="/Source/logo.png" HorizontalAlignment="Left"/>
+        <Border Grid.Row="1" Grid.ColumnSpan="2" Height="500" Width="500" Background="Gray"/>
+        <Label Content="Выбор столика" Grid.Row="1" Grid.ColumnSpan="2" 
+               FontFamily="Pieces of Eight Cyrillic AA"
+               FontSize="58"
+               Margin="0 15 0 0"
+               HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Width="500" Height="500" VerticalAlignment="Center">
+            <Button Name="btnNumber1" Height="30" Width="50" Content="#1" 
+                    Margin="10 10 0 0" HorizontalAlignment="Left" Click="btnNumber1_Click"
+                />
+            <Button Name="btnNumber2" Height="30" Width="50" Content="#2" 
+                    Margin="10 10 0 0" HorizontalAlignment="Left" Click="btnNumber2_Click"
+                />
+            <Button Name="btnNumber3" Height="30" Width="50" Content="#3" 
+                    Margin="10 10 0 0" HorizontalAlignment="Left" Click="btnNumber3_Click"
+                />
+            <Button Name="btnNumber4" Height="30" Width="50" Content="#4" 
+                    Margin="10 10 0 0" HorizontalAlignment="Left" Click="btnNumber4_Click"
+                />
+            <Button Name="btnNumber5" Height="30" Width="50" Content="#5" 
+                    Margin="10 10 0 0" HorizontalAlignment="Left" Click="btnNumber5_Click"
+                />
+            <Button Name="btnNumber6" Height="30" Width="50" Content="#6" 
+                    Margin="10 10 0 0" HorizontalAlignment="Left" Click="btnNumber6_Click"
+                />
+            <Button Name="btnNumber7" Height="30" Width="50" Content="#7" 
+                    Margin="10 10 0 0" HorizontalAlignment="Left" Click="btnNumber7_Click"
+                />
+            <Button Name="btnNumber8" Height="30" Width="50" Content="#8" 
+                    Margin="10 10 0 0" HorizontalAlignment="Left" Click="btnNumber8_Click"
+                />
+            
+        </StackPanel>
+
+
+
+
+
     </Grid>
 </Window>
