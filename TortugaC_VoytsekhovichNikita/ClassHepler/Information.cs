@@ -8,7 +8,7 @@ namespace TortugaC_VoytsekhovichNikita.ClassHepler
 {
     public static class Information
     {
-        public static EF.Table ID { get; set; }
+        public static EF.Table IDTable { get; set; }
         public static List<EF.Product> ListOfOrder = new List<EF.Product>();
     }
 }

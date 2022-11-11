@@ -33,6 +33,7 @@
           <Property Name="EmployeeID" Type="int" Nullable="false" />
           <Property Name="StatusID" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="OderDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -329,6 +330,7 @@
           <Property Name="EmployeeID" Type="Int32" Nullable="false" />
           <Property Name="StatusID" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="OderDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Employee" Relationship="TortugaCModel.FK_Order_Employee" FromRole="Order" ToRole="Employee" />
           <NavigationProperty Name="Status" Relationship="TortugaCModel.FK_Order_Status" FromRole="Order" ToRole="Status" />
           <NavigationProperty Name="Table" Relationship="TortugaCModel.FK_Order_Table" FromRole="Order" ToRole="Table" />
@@ -514,6 +516,7 @@
           <EntitySetMapping Name="Order">
             <EntityTypeMapping TypeName="TortugaCModel.Order">
               <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="OderDate" ColumnName="OderDate" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="StatusID" ColumnName="StatusID" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />

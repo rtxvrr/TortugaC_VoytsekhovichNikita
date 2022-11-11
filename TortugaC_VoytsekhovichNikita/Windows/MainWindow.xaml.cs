@@ -10,9 +10,11 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TortugaC_VoytsekhovichNikita.ClassHepler;
+using TortugaC_VoytsekhovichNikita.EF;
 using TortugaC_VoytsekhovichNikita.Windows;
+using Table = TortugaC_VoytsekhovichNikita.EF.Table;
 
 namespace TortugaC_VoytsekhovichNikita
 {
@@ -24,77 +26,19 @@ namespace TortugaC_VoytsekhovichNikita
         public MainWindow()
         {
             InitializeComponent();
+            lvTables.ItemsSource = Class1.Context.Table.ToList();
+            
         }
 
-        private void btnNumber1_Click(object sender, RoutedEventArgs e)
+        private void btnTableSelect_Click(object sender, RoutedEventArgs e)
         {
-            int TableNumber = 1;
-            MainMenu menu = new MainMenu(TableNumber);
+            
+            lvTables.SelectedItem = (sender as Button).DataContext;
+            var selectedtableid = lvTables.SelectedItem as Table;
+            ClassHepler.Information.IDTable = selectedtableid;
+            MessageBox.Show("Вы выбрали столик: " + selectedtableid.ID);
+            MainMenu menu = new MainMenu();
             this.Close();
-
-            menu.Show();
-        }
-
-        private void btnNumber2_Click(object sender, RoutedEventArgs e)
-        {
-            int TableNumber = 2;
-            MainMenu menu = new MainMenu(TableNumber);
-            this.Close();
-
-            menu.Show();
-        }
-
-        private void btnNumber3_Click(object sender, RoutedEventArgs e)
-        {
-            int TableNumber = 3;
-            MainMenu menu = new MainMenu(TableNumber);
-            this.Close();
-
-            menu.Show();
-        }
-
-        private void btnNumber4_Click(object sender, RoutedEventArgs e)
-        {
-            int TableNumber = 4;
-            MainMenu menu = new MainMenu(TableNumber);
-            this.Close();
-
-            menu.Show();
-        }
-
-        private void btnNumber5_Click(object sender, RoutedEventArgs e)
-        {
-            int TableNumber = 5;
-            MainMenu menu = new MainMenu(TableNumber);
-            this.Close();
-
-            menu.Show();
-        }
-
-        private void btnNumber6_Click(object sender, RoutedEventArgs e)
-        {
-            int TableNumber = 6;
-            MainMenu menu = new MainMenu(TableNumber);
-            this.Close();
-
-            menu.Show();
-        }
-
-        private void btnNumber7_Click(object sender, RoutedEventArgs e)
-        {
-            int TableNumber = 7;
-            MainMenu menu = new MainMenu(TableNumber);
-            this.Close();
-
-            menu.Show();
-        }
-
-        private void btnNumber8_Click(object sender, RoutedEventArgs e)
-        {
-            int TableNumber = 8;
-            MainMenu menu = new MainMenu(TableNumber);
-            this.Close();
-
             menu.Show();
         }
     }

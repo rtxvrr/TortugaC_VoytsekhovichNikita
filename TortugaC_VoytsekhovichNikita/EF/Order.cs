@@ -26,6 +26,7 @@ namespace TortugaC_VoytsekhovichNikita.EF
         public int EmployeeID { get; set; }
         public int StatusID { get; set; }
         public string Description { get; set; }
+        public Nullable<System.DateTime> OderDate { get; set; }
     
         public virtual Employee Employee { get; set; }
         public virtual Status Status { get; set; }

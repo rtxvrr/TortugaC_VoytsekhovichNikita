@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TortugaC_VoytsekhovichNikita.Windows"
         mc:Ignorable="d"
-        Title="MainMenu" Height="850" Width="800" WindowStartupLocation="CenterScreen" FontFamily="Pieces of Eight Cyrillic AA">
+        Title="Меню" Height="850" Width="800" WindowStartupLocation="CenterScreen" FontFamily="Pieces of Eight Cyrillic AA">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -31,6 +31,7 @@
                   Grid.Row="3"
                   Grid.ColumnSpan="2"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  d:ItemsSource="{d:SampleData ItemCount=5}"
                   >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -40,7 +41,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border
-            Background="Gray"
+            Background="LightGray"
             Width="370"
             Height="200"
             BorderThickness="2"
@@ -62,7 +63,7 @@
                                 FontSize="20"
                                 Width="150"
                                 Height="40"
-                                Foreground="AntiqueWhite"
+                                Foreground="Black"
                                 TextWrapping="Wrap"
                                 Margin="0 0 0 0"
                                 Grid.Row="1"
@@ -71,7 +72,7 @@
                             <TextBlock
                                 Text="Цена: "
                                 FontSize="20"
-                                Foreground="AntiqueWhite"
+                                Foreground="Black"
                                 Margin="0 0 5 0"
                                 HorizontalAlignment="Center"
                                 Grid.Column="0"
@@ -80,7 +81,7 @@
                             <TextBlock
                                 Text="{Binding Price}"
                                 FontSize="16"
-                                Foreground="AntiqueWhite"
+                                Foreground="Black"
                                 HorizontalAlignment="Center"
                                 Margin="120 0 5 0"
                                 Grid.Column="0"
@@ -88,10 +89,7 @@
                                 />
                             <Image x:Name="PhotoProduct"
                                    Grid.RowSpan="2"
-                                   Grid.Column="0"
-                                   Margin="0"
-                                   Width="100"
-                                   Height="400">
+                                   Grid.Column="0">
                                 <Image.Source>
                                     <Binding Path="Image">
                                         <Binding.TargetNullValue>
@@ -116,7 +114,8 @@
         </ListView>
 
         <ListView Name="lvCategory" Grid.Row="2" Grid.ColumnSpan="2"
-                  SelectionChanged="lvCategory_SelectionChanged">
+                  SelectionChanged="lvCategory_SelectionChanged"
+                  d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal"/>

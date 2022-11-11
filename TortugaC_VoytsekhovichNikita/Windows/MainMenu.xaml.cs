@@ -23,7 +23,7 @@ namespace TortugaC_VoytsekhovichNikita.Windows
     {
         //List<Product> ProductsAll = new List<Product>();
         List<Category> categories = new List<Category>();
-        public MainMenu(int TableNumber)
+        public MainMenu()
         {
             InitializeComponent();
             categories = Class1.Context.Category.ToList();

@@ -14,6 +14,8 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
+
+            <RowDefinition Height="70"/>
             <RowDefinition/>
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
@@ -22,39 +24,75 @@
         <Label Content="ТортугаС Бар" FontFamily="Pieces of Eight Cyrillic AA"
                FontSize="58" Margin="100 0 0 0" Grid.ColumnSpan="2"/>
         <Image Source="/Source/logo.png" HorizontalAlignment="Left"/>
-        <Border Grid.Row="1" Grid.ColumnSpan="2" Height="500" Width="500" Background="Gray"/>
         <Label Content="Выбор столика" Grid.Row="1" Grid.ColumnSpan="2" 
-               FontFamily="Pieces of Eight Cyrillic AA"
                FontSize="58"
-               Margin="0 15 0 0"
+               Margin="0 0 0 0"
                HorizontalAlignment="Center"/>
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Width="500" Height="500" VerticalAlignment="Center">
-            <Button Name="btnNumber1" Height="30" Width="50" Content="#1" 
-                    Margin="10 10 0 0" HorizontalAlignment="Left" Click="btnNumber1_Click"
-                />
-            <Button Name="btnNumber2" Height="30" Width="50" Content="#2" 
-                    Margin="10 10 0 0" HorizontalAlignment="Left" Click="btnNumber2_Click"
-                />
-            <Button Name="btnNumber3" Height="30" Width="50" Content="#3" 
-                    Margin="10 10 0 0" HorizontalAlignment="Left" Click="btnNumber3_Click"
-                />
-            <Button Name="btnNumber4" Height="30" Width="50" Content="#4" 
-                    Margin="10 10 0 0" HorizontalAlignment="Left" Click="btnNumber4_Click"
-                />
-            <Button Name="btnNumber5" Height="30" Width="50" Content="#5" 
-                    Margin="10 10 0 0" HorizontalAlignment="Left" Click="btnNumber5_Click"
-                />
-            <Button Name="btnNumber6" Height="30" Width="50" Content="#6" 
-                    Margin="10 10 0 0" HorizontalAlignment="Left" Click="btnNumber6_Click"
-                />
-            <Button Name="btnNumber7" Height="30" Width="50" Content="#7" 
-                    Margin="10 10 0 0" HorizontalAlignment="Left" Click="btnNumber7_Click"
-                />
-            <Button Name="btnNumber8" Height="30" Width="50" Content="#8" 
-                    Margin="10 10 0 0" HorizontalAlignment="Left" Click="btnNumber8_Click"
-                />
-            
-        </StackPanel>
+        <ListView x:Name="lvTables"
+                  Grid.Row="2"
+                  Grid.ColumnSpan="2"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  >
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+            Background="Gray"
+            Width="370"
+            Height="200"
+            BorderThickness="2"
+            CornerRadius="5"
+            BorderBrush="Wheat">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock
+                                Text="{Binding Title}"
+                                FontSize="20"
+                                Width="150"
+                                Height="40"
+                                Foreground="AntiqueWhite"
+                                TextWrapping="Wrap"
+                                Margin="0 0 0 0"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                />
+                            <TextBlock
+                                Text="{Binding Description}"
+                                FontSize="16"
+                                Foreground="AntiqueWhite"
+                                HorizontalAlignment="Center"
+                                Margin="120 0 5 0"
+                                Grid.Column="0"
+                                Grid.Row="1"
+                                Grid.ColumnSpan="2"
+                                />
+                            <Button Name="btnTableSelect"
+                                    Content="Выбрать"
+                                    Click="btnTableSelect_Click"
+                                    Grid.Row="3"
+                                    FontSize="20"
+                                    VerticalContentAlignment="Center"
+                                    Grid.Column="1"
+                                    Width="100"
+                                    Height="30"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
 
 
