@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TortugaC_VoytsekhovichNikita", "TortugaC_VoytsekhovichNikita\TortugaC_VoytsekhovichNikita.csproj", "{AEA4947B-65F4-484B-B5A1-110C58F8F96D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TortugaCTestProject", "TortugaCTestProject\TortugaCTestProject.csproj", "{5C27D1D4-A8B5-43A2-9F28-5CD9A41558E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AEA4947B-65F4-484B-B5A1-110C58F8F96D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEA4947B-65F4-484B-B5A1-110C58F8F96D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEA4947B-65F4-484B-B5A1-110C58F8F96D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C27D1D4-A8B5-43A2-9F28-5CD9A41558E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C27D1D4-A8B5-43A2-9F28-5CD9A41558E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C27D1D4-A8B5-43A2-9F28-5CD9A41558E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C27D1D4-A8B5-43A2-9F28-5CD9A41558E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,8 +5,147 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TortugaC_VoytsekhovichNikita.Windows"
         mc:Ignorable="d"
-        Title="Information" Height="450" Width="800">
+        Title="Information" Height="300" Width="600" WindowStartupLocation="CenterScreen" >
     <Grid>
-        
+        <Border
+                    Background="LightGray"
+                    Width="600"
+                    Height="278"
+                    BorderThickness="2"
+                    CornerRadius="5"
+                    BorderBrush="Wheat">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Name="TitleTB"
+                                        Text="{Binding Title}"
+                                        FontSize="20"
+                                        Width="150"
+                                        Height="70"
+                                        Foreground="Black"
+                                        TextWrapping="Wrap"
+                                        Margin="0 0 0 150"
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        />
+                <ListView
+                    Name="IngridientsLV"
+                    Background="Transparent"
+                    FontSize="20"
+                    Width="150"
+                    Height="70"
+                    Foreground="Black"                   
+                    Margin="100 0 0 50"
+                    Grid.Row="1"
+                    Grid.RowSpan="3"
+                    Grid.Column="2">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Ingridients}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView
+                    Name="DescriptionLV"
+                    Background="Transparent"
+                    FontSize="20"
+                    Width="150"
+                    Height="70"
+                    Foreground="Black"                   
+                    Margin="100 100 0 0"
+                    Grid.Row="1"
+                    Grid.RowSpan="3"
+                    Grid.Column="2">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Description}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <TextBlock 
+                    Text="Состав блюда:"
+                    FontSize="15"
+                    Width="70"
+                    Height="70"
+                    TextWrapping="Wrap"
+                    Margin="0 0 100 50"
+                    Grid.Row="1"
+                    Grid.RowSpan="3"
+                    
+                    Grid.Column="2"/>
+                <TextBlock 
+                    Text="Описание"
+                    FontSize="15"
+                    Width="70"
+                    Height="70"
+                    TextWrapping="Wrap"
+                    Margin="0 100 120 00"
+                    Grid.Row="1"
+                    Grid.RowSpan="3"
+                    
+                    Grid.Column="2"/>
+                <TextBlock
+                                        Text="Цена: "
+                                        FontSize="20"
+                                        Foreground="Black"
+                                        Margin="0 0 5 0"
+                                        HorizontalAlignment="Center"
+                                        Grid.Column="0"
+                                        Grid.Row="3"
+                                        />
+                <TextBlock
+                                        Text="Вес: "
+                                        FontSize="15"
+                                        Foreground="Black"
+                                        Margin="0 0 90 0"
+                                        HorizontalAlignment="Center"
+                                        Grid.Column="1"
+                                        Grid.Row="3"
+                                        />
+                <TextBlock
+                    Name="WeidghProductTB"
+                                        Text="Вес: "
+                                        FontSize="15"
+                                        Foreground="Black"
+                                        Margin="30 0 0 0"
+                                        HorizontalAlignment="Center"
+                                        Grid.Column="1"
+                                        Grid.Row="3"
+                                        />
+                <TextBlock
+                    Name="PriceTB"
+                                        Text="{Binding Price}"
+                                        FontSize="16"
+                                        Foreground="Black"
+                                        HorizontalAlignment="Center"
+                                        Margin="120 0 5 0"
+                                        Grid.Column="0"
+                                        Grid.Row="3"
+                                        />
+                <Image x:Name="PhotoProduct"
+                       Grid.RowSpan="2"
+                       Grid.Column="0"
+                       Source="\Source\logo.png">
+                </Image>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

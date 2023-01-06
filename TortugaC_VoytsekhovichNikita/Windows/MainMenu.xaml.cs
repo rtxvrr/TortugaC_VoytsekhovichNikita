@@ -69,12 +69,20 @@ namespace TortugaC_VoytsekhovichNikita.Windows
             lvMenu.SelectedItem = (sender as Button).DataContext;
             var prod = lvMenu.SelectedItem as Product;
             ClassHepler.Information.ListOfOrder.Add(prod);
-            MessageBox.Show(prod.Title + " Добавлено в корзину");
         }
 
         private void lvCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Filter();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            lvMenu.SelectedItem = (sender as Button).DataContext;
+            var prod = lvMenu.SelectedItem as Product;
+            Information im = new Information(prod);
+            im.ShowDialog();
+
         }
     }
 }

@@ -27,16 +27,13 @@ namespace TortugaC_VoytsekhovichNikita
         {
             InitializeComponent();
             lvTables.ItemsSource = Class1.Context.Table.ToList();
-            
         }
 
         private void btnTableSelect_Click(object sender, RoutedEventArgs e)
         {
-            
             lvTables.SelectedItem = (sender as Button).DataContext;
             var selectedtableid = lvTables.SelectedItem as Table;
             ClassHepler.Information.IDTable = selectedtableid;
-            MessageBox.Show("Вы выбрали столик: " + selectedtableid.ID);
             MainMenu menu = new MainMenu();
             this.Close();
             menu.Show();

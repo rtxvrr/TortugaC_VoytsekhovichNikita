@@ -31,8 +31,14 @@ namespace TortugaC_VoytsekhovichNikita.Windows
             decimal totalCost = 0;
             foreach (EF.Product prod in ClassHepler.Information.ListOfOrder)
             {
-
                 totalCost += prod.Price;
+                WhiteSaturday.Content = "";
+                
+            }
+            if ((DateTime.Now.Day == 29 || DateTime.Now.Day == 30 || DateTime.Now.Day == 31) && DateTime.Now.DayOfWeek.ToString() == "Saturday")
+            {
+                totalCost = totalCost - (totalCost * Convert.ToDecimal(0.11));
+                WhiteSaturday.Content = "Акция Белая Суббота, cкидка на всё 11%";
             }
 
             return Convert.ToString(totalCost);
@@ -100,26 +106,30 @@ namespace TortugaC_VoytsekhovichNikita.Windows
                 order.TableID = Convert.ToInt32(ClassHepler.Information.IDTable.ID);
                 order.OderDate = DateTime.Now;
                 order.EmployeeID = 1;
-                order.StatusID = 1;
+                order.StatusID = 2;
                 ClassHepler.Class1.Context.Order.Add(order);
                 ClassHepler.Class1.Context.SaveChanges();
 
-                if (order.StatusID == 1)
+                if (order.StatusID == 2)
                 {
                     EF.ProductOrder orderProduct = new EF.ProductOrder();
 
                     foreach (EF.Product prod in ClassHepler.Information.ListOfOrder.Distinct())
                     {
-                        orderProduct.ID = order.ID;
+                        orderProduct.OrderID = order.ID;
                         orderProduct.ProductID = prod.ID;
                         orderProduct.Count = prod.OrderProdCount;
-                        //ClassHepler.Class1.Context.ProductOrder.Add(orderProduct);
+                        orderProduct.StatusID = 2;
+                        ClassHepler.Class1.Context.ProductOrder.Add(orderProduct);
                         
                     }
                     ClassHepler.Class1.Context.SaveChanges();
                     MessageBox.Show($"Заказ №{order.ID} успешно оформлен!", "Успешно", MessageBoxButton.OK, MessageBoxImage.Information);
                     ClassHepler.Information.ListOfOrder.Clear();
                     Update();
+                    MainWindow mw = new MainWindow();
+                    this.Close();
+                    mw.Show();
                 }
                 else
                 {

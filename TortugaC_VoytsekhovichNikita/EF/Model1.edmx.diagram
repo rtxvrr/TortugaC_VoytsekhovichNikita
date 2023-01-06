@@ -5,14 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="aa72098c6030433e8c1beb7accaa12f3" Name="Diagram1">
-        <EntityTypeShape EntityType="TortugaCModel.Category" Width="1.5" PointX="0.75" PointY="11.625" />
-        <EntityTypeShape EntityType="TortugaCModel.Employee" Width="1.5" PointX="0.75" PointY="7.25" />
+        <EntityTypeShape EntityType="TortugaCModel.Category" Width="1.5" PointX="0.75" PointY="12.625" />
+        <EntityTypeShape EntityType="TortugaCModel.Employee" Width="1.5" PointX="0.75" PointY="5.5" />
         <EntityTypeShape EntityType="TortugaCModel.Order" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="TortugaCModel.Product" Width="1.5" PointX="3" PointY="10.875" />
-        <EntityTypeShape EntityType="TortugaCModel.ProductOrder" Width="1.5" PointX="5.25" PointY="1.5" />
-        <EntityTypeShape EntityType="TortugaCModel.Status" Width="1.5" PointX="0.75" PointY="4.875" />
+        <EntityTypeShape EntityType="TortugaCModel.Product" Width="1.5" PointX="3" PointY="11.875" />
+        <EntityTypeShape EntityType="TortugaCModel.ProductOrder" Width="1.5" PointX="5.25" PointY="1.375" />
+        <EntityTypeShape EntityType="TortugaCModel.Status" Width="1.5" PointX="0.75" PointY="1.75" />
         <EntityTypeShape EntityType="TortugaCModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="5.75" />
-        <EntityTypeShape EntityType="TortugaCModel.Table" Width="1.5" PointX="0.75" PointY="1.625" />
+        <EntityTypeShape EntityType="TortugaCModel.Table" Width="1.5" PointX="0.75" PointY="8.375" />
         <AssociationConnector Association="TortugaCModel.FK_Product_Category" />
         <AssociationConnector Association="TortugaCModel.FK_Order_Employee" />
         <AssociationConnector Association="TortugaCModel.FK_Order_Status" />

@@ -18,6 +18,7 @@ namespace TortugaC_VoytsekhovichNikita.EF
         public int OrderID { get; set; }
         public int ProductID { get; set; }
         public int Count { get; set; }
+        public int StatusID { get; set; }
     
         public virtual Order Order { get; set; }
         public virtual Product Product { get; set; }
