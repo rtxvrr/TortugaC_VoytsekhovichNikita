@@ -31,7 +31,7 @@ namespace TortugaC_VoytsekhovichNikita.Windows
             decimal totalCost = 0;
             foreach (EF.Product prod in ClassHepler.Information.ListOfOrder)
             {
-                totalCost += prod.Price;
+                totalCost += prod.Price - (prod.Price * prod.Discount);
                 WhiteSaturday.Content = "";
                 
             }

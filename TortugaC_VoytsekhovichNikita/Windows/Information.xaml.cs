@@ -25,6 +25,13 @@ namespace TortugaC_VoytsekhovichNikita.Windows
         public Information(EF.Product productinfo)
         {
             InitializeComponent();
+            tbDiscountBool.Visibility = Visibility.Hidden;
+            PriceDiscountTB.Visibility = Visibility.Hidden;
+            if (productinfo.Discount > 0)
+            {
+                tbDiscountBool.Visibility = Visibility.Visible;
+                PriceDiscountTB.Visibility = Visibility.Visible;
+            }
             TitleTB.Text = productinfo.Title;
             List<Product> products = Class1.Context.Product.Where(i => i.ID == productinfo.ID).ToList();
             IngridientsLV.ItemsSource = products;
@@ -32,6 +39,7 @@ namespace TortugaC_VoytsekhovichNikita.Windows
             //IngridientsTB.Text = productinfo.Ingridients;
             WeidghProductTB.Text = (productinfo.Weight * 1000 + " гр.").ToString();
             PriceTB.Text = productinfo.Price.ToString();
+            PriceDiscountTB.Text = (productinfo.Price - (productinfo.Price * productinfo.Discount)).ToString();
             try
             {
                 PhotoProduct.Source = new BitmapImage(new Uri(productinfo.Image));
@@ -42,6 +50,8 @@ namespace TortugaC_VoytsekhovichNikita.Windows
             }
             
             TitleTB.Text = productinfo.Title;
+            string a = (productinfo.Discount * 100).ToString();
+            DiscountProductTB.Text = a + " %";
         }
     }
 }

@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TortugaC_VoytsekhovichNikita.Windows"
         mc:Ignorable="d"
-        Title="Меню" Height="850" Width="800" WindowStartupLocation="CenterScreen" FontFamily="Pieces of Eight Cyrillic AA">
+        Title="Меню" Height="850" Width="800" 
+        WindowStartupLocation="CenterScreen" 
+        FontFamily="Pieces of Eight Cyrillic AA">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -86,6 +88,7 @@
                                 Grid.Row="3"
                                 />
                             <TextBlock
+                                Name="tbProductPrice"
                                 Text="{Binding Price}"
                                 FontSize="16"
                                 Foreground="Black"
@@ -185,9 +188,9 @@
             </ListView.ItemTemplate>
             
         </ListView>
-        <Label  Content="Общая сумма: 0 руб." Grid.Row="4" 
+        <Label Name="lFullCost" Content="Общая сумма: 0 руб." Grid.Row="4" 
                 HorizontalContentAlignment="Center" 
-                VerticalContentAlignment="Center" FontSize="15"/>
+                VerticalContentAlignment="Center" FontSize="15" Margin="25 0 0 0"/>
         <Image Source="\Source\money.png" Grid.Row="4" Grid.Column="0"
                Width="45" Height="45" Margin="0 0 200 0"/>
         <Button Grid.Row="4" Grid.Column="1" Height="50" Width="50"

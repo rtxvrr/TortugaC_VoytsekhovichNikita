@@ -31,6 +31,9 @@ namespace TortugaC_VoytsekhovichNikita.Windows
             lvCategory.ItemsSource = categories;
             lvCategory.SelectedIndex = 0;
             Filter();
+            totalPrice();
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -39,7 +42,21 @@ namespace TortugaC_VoytsekhovichNikita.Windows
             this.Close();
             cart.Show();
         }
-
+        public string totalPrice()
+        {
+            decimal totalCost = 0;
+            foreach (EF.Product prod in ClassHepler.Information.ListOfOrder)
+            {
+                totalCost += prod.Price - (prod.Price * prod.Discount);
+            }
+            if ((DateTime.Now.Day == 29 || DateTime.Now.Day == 30 || DateTime.Now.Day == 31) && DateTime.Now.DayOfWeek.ToString() == "Saturday")
+            {
+                totalCost = totalCost - (totalCost * Convert.ToDecimal(0.11));
+            }
+            string totalsum = totalCost.ToString();
+            lFullCost.Content = "Общая сумма: " + totalsum + " руб.";
+            return Convert.ToString(totalCost);
+        }
         public void Filter()
         {
             List<Product> products = Class1.Context.Product.ToList();
@@ -69,6 +86,7 @@ namespace TortugaC_VoytsekhovichNikita.Windows
             lvMenu.SelectedItem = (sender as Button).DataContext;
             var prod = lvMenu.SelectedItem as Product;
             ClassHepler.Information.ListOfOrder.Add(prod);
+            totalPrice();
         }
 
         private void lvCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
